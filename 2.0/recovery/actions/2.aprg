@@ -1,0 +1,89 @@
+main×××false×
+$
+setVar&name~rl_item~•value~1~•&;
+setVar&name~rl_count~•value~5~•&;
+sysHide&&;
+clearScreen&&;
+newPage&&;
+broadcast&value~recovery_render~•&;
+wait&value~0.25~•&;
+broadcast&value~recovery_controls1~•&;
+broadcast&value~recovery_controls2~•&;
+$
+¶
+broadcasted×recovery_render××false×
+$
+forceStop&event~broadcasted×recovery_stop_menu2××~•&;
+sysPrint&value~∆rl_item~•&;
+newPage&&;
+// Title;
+addElement&type~text~•x~-230~•y~170~•properties~value◌wipe data - factory reset◌░size◌100◌░color_effect◌50◌░~•&;
+addElement&type~text~•x~-235~•y~145~•properties~value◌This will WIPE all your data!◌░size◌50◌░color_effect◌120◌░~•&;
+addElement&type~text~•x~-235~•y~135~•properties~value◌-------------------◌░size◌50◌░brightness_effect◌100◌░~•&;
+// Item 1;
+addElement&type~text~•x~-235~•y~115~•properties~value◌No, reboot◌░size◌50◌░color_effect◌35◌░brightness_effect◌0◌░~•event~equal×∆rl_item×1×~•&;
+addElement&type~text~•x~-235~•y~115~•properties~value◌No, reboot◌░size◌50◌░color_effect◌35◌░brightness_effect◌100◌░~•event~not×equal×××∆rl_item☼1☼■×~•&;
+// Item 2;
+addElement&type~text~•x~-235~•y~95~•properties~value◌No, reboot◌░size◌50◌░color_effect◌35◌░brightness_effect◌0◌░~•event~equal×∆rl_item×2×~•&;
+addElement&type~text~•x~-235~•y~95~•properties~value◌No, reboot◌░size◌50◌░color_effect◌35◌░brightness_effect◌100◌░~•event~not×equal×××∆rl_item☼2☼■×~•&;
+// Item 3;
+addElement&type~text~•x~-235~•y~75~•properties~value◌No, reboot◌░size◌50◌░color_effect◌35◌░brightness_effect◌0◌░~•event~equal×∆rl_item×3×~•&;
+addElement&type~text~•x~-235~•y~75~•properties~value◌No, reboot◌░size◌50◌░color_effect◌35◌░brightness_effect◌100◌░~•event~not×equal×××∆rl_item☼3☼■×~•&;
+// Item 4;
+addElement&type~text~•x~-235~•y~55~•properties~value◌No, reboot◌░size◌50◌░color_effect◌35◌░brightness_effect◌0◌░~•event~equal×∆rl_item×4×~•&;
+addElement&type~text~•x~-235~•y~55~•properties~value◌No, reboot◌░size◌50◌░color_effect◌35◌░brightness_effect◌100◌░~•event~not×equal×××∆rl_item☼4☼■×~•&;
+// Item 5;
+addElement&type~text~•x~-235~•y~35~•properties~value◌Yes◌░size◌50◌░color_effect◌35◌░brightness_effect◌0◌░~•event~equal×∆rl_item×5×~•&;
+addElement&type~text~•x~-235~•y~35~•properties~value◌Yes◌░size◌50◌░color_effect◌35◌░brightness_effect◌100◌░~•event~not×equal×××∆rl_item☼5☼■×~•&;
+// Render;
+refreshPage&&;
+$
+¶
+broadcasted×recovery_controls1××true×
+$
+wait&until~or×keypressed×keypressed×false×up☼☼■down☼☼■×~•&;
+changeVar&name~rl_item~•value~-1~•event~keypressed×up×××~•&;
+changeVar&name~rl_item~•value~1~•event~keypressed×down×××~•&;
+setVar&name~rl_item~•value~1~•event~lower×∆rl_item×1×~•&;
+setVar&name~rl_item~•value~∆rl_count~•event~greater×∆rl_item×∆rl_count×~•&;
+broadcast&value~recovery_render~•&;
+wait&until~nor×keypressed×keypressed×false×up☼☼■down☼☼■×~•&;
+$
+¶
+broadcasted×recovery_controls2××true×
+$
+wait&until~or×keypressed×keypressed×false×space☼☼■enter☼☼■×~•&;
+varListen&name~temp1~•&;
+getJoin&string1~recovery_action~•string2~∆rl_item~•&;
+broadcast&value~∆temp1~•&;
+broadcast&value~recovery_render~•&;
+wait&until~nor×keypressed×keypressed×false×space☼☼■enter☼☼■×~•&;
+$
+¶
+broadcasted×recovery_action1××false×
+$
+reboot&&;
+$
+¶
+broadcasted×recovery_action2××false×
+$
+reboot&&;
+$
+¶
+broadcasted×recovery_action3××false×
+$
+reboot&&;
+$
+¶
+broadcasted×recovery_action4××false×
+$
+reboot&&;
+$
+¶
+broadcasted×recovery_action5××false×
+$
+formatPart&id~3~•;
+formatPart&id~4~•;
+reboot&&;
+$
+¶

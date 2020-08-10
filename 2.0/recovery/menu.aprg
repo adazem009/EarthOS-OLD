@@ -1,0 +1,75 @@
+main×××false×
+$
+setVar&name~rl_item~•value~1~•&;
+createVar&name~rl_count~•value~3~•&;
+sysHide&&;
+clearScreen&&;
+newPage&&;
+broadcast&value~recovery_render~•&;
+wait&value~0.25~•&;
+broadcast&value~recovery_controls1~•&;
+broadcast&value~recovery_controls2~•&;
+$
+¶
+broadcasted×recovery_render××false×
+$
+forceStop&event~broadcasted×recovery_stop_menu0××~•&;
+newPage&&;
+// Title;
+addElement&type~text~•x~-230~•y~170~•properties~value◌EarthOS recovery◌░size◌100◌░color_effect◌50◌░~•&;
+varListen&name~temp1~•&;
+getJoin&string1~version ~•string2~∆rversion~•&;
+addElement&type~text~•x~-235~•y~145~•properties~value◌∆temp1◌░size◌50◌░color_effect◌120◌░~•&;
+addElement&type~text~•x~-235~•y~135~•properties~value◌-------------------◌░size◌50◌░brightness_effect◌100◌░~•&;
+// Item 1;
+addElement&type~text~•x~-235~•y~115~•properties~value◌reboot system now◌░size◌50◌░color_effect◌35◌░brightness_effect◌0◌░~•event~equal×∆rl_item×1×~•&;
+addElement&type~text~•x~-235~•y~115~•properties~value◌reboot system now◌░size◌50◌░color_effect◌35◌░brightness_effect◌100◌░~•event~not×equal×××∆rl_item☼1☼■×~•&;
+// Item 2;
+addElement&type~text~•x~-235~•y~95~•properties~value◌wipe data - factory reset◌░size◌50◌░color_effect◌35◌░brightness_effect◌0◌░~•event~equal×∆rl_item×2×~•&;
+addElement&type~text~•x~-235~•y~95~•properties~value◌wipe data - factory reset◌░size◌50◌░color_effect◌35◌░brightness_effect◌100◌░~•event~not×equal×××∆rl_item☼2☼■×~•&;
+// Item 3;
+addElement&type~text~•x~-235~•y~75~•properties~value◌power off◌░size◌50◌░color_effect◌35◌░brightness_effect◌0◌░~•event~equal×∆rl_item×3×~•&;
+addElement&type~text~•x~-235~•y~75~•properties~value◌power off◌░size◌50◌░color_effect◌35◌░brightness_effect◌100◌░~•event~not×equal×××∆rl_item☼3☼■×~•&;
+// Render;
+refreshPage&&;
+$
+¶
+broadcasted×recovery_controls1××true×
+$
+wait&until~or×keypressed×keypressed×false×up☼☼■down☼☼■×~•&;
+changeVar&name~rl_item~•value~-1~•event~keypressed×up×××~•&;
+changeVar&name~rl_item~•value~1~•event~keypressed×down×××~•&;
+setVar&name~rl_item~•value~1~•event~lower×∆rl_item×1×~•&;
+setVar&name~rl_item~•value~∆rl_count~•event~greater×∆rl_item×∆rl_count×~•&;
+broadcast&value~recovery_render~•&;
+wait&until~nor×keypressed×keypressed×false×up☼☼■down☼☼■×~•&;
+$
+¶
+broadcasted×recovery_controls2××true×
+$
+wait&until~or×keypressed×keypressed×false×space☼☼■enter☼☼■×~•&;
+varListen&name~temp1~•&;
+getJoin&string1~recovery_action~•string2~∆rl_item~•&;
+broadcast&value~∆temp1~•&;
+broadcast&value~recovery_render~•&;
+wait&until~nor×keypressed×keypressed×false×space☼☼■enter☼☼■×~•&;
+$
+¶
+broadcasted×recovery_action1××false×
+$
+forceStop&event~equal×∆recovery_stop_controls0×1×~•&;
+reboot&&;
+$
+¶
+broadcasted×recovery_action2××false×
+$
+broadcast&value~recovery_stop_menu0~•&;
+stopAll&reload~true~•location~/actions~•name~2.aprg~•&;
+$
+¶
+broadcasted×recovery_action3××false×
+$
+forceStop&event~equal×∆recovery_stop_controls0×1×~•&;
+shutdown&&;
+$
+¶
