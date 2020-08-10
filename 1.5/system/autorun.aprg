@@ -1,0 +1,13 @@
+main×××false×
+$
+broadcast&value~continue_autorun~•&;
+$
+¶
+broadcasted×continue_autorun×××
+$
+wait&until~equal×∆process××~•&;
+wait&value~1~•&;
+setVar&name~process~•value~run_apps~•&;
+stopAll&reload~true~•location~/~•name~auto_reset.asc~•wait~false~•&;
+$
+¶

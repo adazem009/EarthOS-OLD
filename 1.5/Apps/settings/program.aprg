@@ -1,0 +1,151 @@
+main×××false×
+$
+stopIf&value~equal×∆process××~•&;
+sysPrint&value~Opening settings, please wait...~•&;
+setVar&name~temp~•value~1~•&;
+broadcast&value~app_settings_write~•&;
+broadcast&value~app_settings_control~•&;
+broadcast&value~app_settings_control2~•&;
+$
+¶
+broadcasted×app_settings_write××false×
+$
+stopIf&value~equal×∆process××~•&;
+newPage&&;
+addElement&type~pen~•x~0~•y~0~•properties~shape◌dot◌░size◌10000◌░R◌255◌░G◌255◌░B◌255◌░~•&;
+setVar&name~temp2~•value~∆temp-1~•&;
+setVar&name~temp2~•value~∆temp2*20~•&;
+addElement&type~text~•x~-50~•y~160~•properties~value◌Settings◌░size◌100◌░brightness_effect◌-100◌░~•&;
+addElement&type~pen~•x~-140~•y~140-∆temp2~•properties~shape◌rectangle◌░la◌200◌░lb◌25◌░R◌0◌░G◌255◌░B◌255◌░fill◌false◌░~•&;
+addElement&type~text~•x~-230~•y~140~•properties~value◌Change password◌░size◌50◌░brightness_effect◌-100◌░~•&;
+addElement&type~text~•x~-230~•y~120~•properties~value◌Add user◌░size◌50◌░brightness_effect◌-100◌░~•&;
+addElement&type~text~•x~-230~•y~100~•properties~value◌Close◌░size◌50◌░brightness_effect◌-100◌░~•&;
+refreshPage&&;
+sysPrint&value~Settings === use arrow keys=======================================~•&;
+sysPrint&value~=== Press SPACE to select, press E to exit. ===~•&;
+sysPrint&value~> Change password~•event~equal×∆temp×1×~•&;
+sysPrint&value~Change password~•event~not×equal×××∆temp☼1☼■×~•&;
+sysPrint&value~> Add user~•event~equal×∆temp×2×~•&;
+sysPrint&value~Add user~•event~not×equal×××∆temp☼2☼■×~•&;
+sysPrint&value~> Close~•event~equal×∆temp×3×~•&;
+sysPrint&value~Close~•event~not×equal×××∆temp☼3☼■×~•&;
+sysPrint&value~~•&;
+sysPrint&value~~•&;
+sysPrint&value~~•&;
+sysPrint&value~~•&;
+sysPrint&value~~•&;
+sysPrint&value~~•&;
+$
+¶
+broadcasted×app_settings_control××false×
+$
+stopIf&value~or×equal×keypressed××∆process☼☼■space☼☼■×~•&;
+wait&until~or×keypressed×keypressed××up☼☼■down☼☼■×~•&;
+setVar&name~temp2~•value~∆temp~•&;
+changeVar&name~temp~•value~-1~•event~and×keypressed×greater××up☼☼■∆temp☼1☼■×~•&;
+changeVar&name~temp~•value~1~•event~and×keypressed×lower××down☼☼■∆temp☼3☼■×~•&;
+broadcast&value~app_settings_write~•&;
+broadcast&value~app_settings_control~•&;
+$
+¶
+broadcasted×app_settings_control2××false×
+$
+stopIf&value~equal×∆process××~•&;
+wait&until~keypressed×space××~•&;
+broadcast&value~app_settings_changepass~•event~and×keypressed×equal××space☼☼■∆temp☼1☼■×~•&;
+broadcast&value~app_settings_adduser~•event~and×keypressed×equal××space☼☼■∆temp☼2☼■×~•&;
+newPage&&event~and×keypressed×equal××space☼☼■∆temp☼3☼■×~•;
+addElement&type~pen~•x~0~•y~0~•properties~shape◌dot◌░size◌10000◌░R◌255◌░G◌255◌░B◌255◌░~•event~and×keypressed×equal××space☼☼■∆temp☼3☼■×~•&;
+addElement&type~text~•x~-100~•y~0~•properties~value◌Closing settings...◌░size◌100◌░brightness_effect◌-100◌░~•event~and×keypressed×equal××space☼☼■∆temp☼3☼■×~•&;
+refreshPage&event~and×keypressed×equal××space☼☼■∆temp☼3☼■×~•&;
+sysPrint&value~Closing settings...~•event~and×keypressed×equal××space☼☼■∆temp☼3☼■×~•&;
+setVar&name~process~•value~~•event~and×keypressed×equal××space☼☼■∆temp☼3☼■×~•&;
+$
+¶
+broadcasted×app_settings_changepass××false×
+$
+stopIf&value~equal×∆process××~•&;
+newPage&&;
+addElement&type~pen~•x~0~•y~0~•properties~shape◌dot◌░size◌10000◌░R◌255◌░G◌255◌░B◌255◌░~•&;
+refreshPage&&;
+varListen&name~i~•&;
+getAsk&value~New password:~•&;
+sysPrint&value~Changing password...~•&;
+addElement&type~text~•x~-100~•y~0~•properties~value◌Changing password...◌░size◌100◌░brightness_effect◌-100◌░~•&;
+refreshPage&&;
+getEncodeItem&value~∆i~•&;
+varListen&name~temp3~•&;
+getJoin&string1~/Users/~•string2~∆logname~•string3~/data~•&;
+editFile&location~∆temp3~•name~password.txt~•value~∆i~•&;
+sysPrint&value~Password changed!~•&;
+newPage&&;
+addElement&type~pen~•x~0~•y~0~•properties~shape◌dot◌░size◌10000◌░R◌255◌░G◌255◌░B◌255◌░~•&;
+addElement&type~text~•x~-100~•y~0~•properties~value◌Password changed!◌░size◌100◌░brightness_effect◌-100◌░~•&;
+refreshPage&&;
+newPage&&;
+addElement&type~pen~•x~0~•y~0~•properties~shape◌dot◌░size◌10000◌░R◌255◌░G◌255◌░B◌255◌░~•&;
+addElement&type~text~•x~-100~•y~0~•properties~value◌Closing settings...◌░size◌100◌░brightness_effect◌-100◌░~•&;
+refreshPage&&;
+sysPrint&value~Closing settings...~•&;
+setVar&name~temp~•value~0~•&;
+setVar&name~process~•value~~•&;
+$
+¶
+broadcasted×app_settings_adduser××false×
+$
+stopIf&value~equal×∆process××~•&;
+newPage&&;
+addElement&type~pen~•x~0~•y~0~•properties~shape◌dot◌░size◌10000◌░R◌255◌░G◌255◌░B◌255◌░~•&;
+refreshPage&&;
+varListen&name~i~•&;
+getAsk&value~Username:~•&;
+varListen&name~temp3~•&;
+getJoin&string1~/Users/~•string2~∆i~•string3~/data~•&;
+getFile&location~∆temp3~•name~check.txt~•&;
+sysPrint&value~User already exists!~•event~not×equal×××∆temp3☼☼■×~•&;
+addElement&type~text~•x~-100~•y~0~•properties~value◌User already exists!◌░size◌100◌░~•event~not×equal×××∆temp3☼☼■×~•&;
+refreshPage&&;
+setVar&name~temp~•value~0~•&;
+setVar&name~temp~•value~1~•event~equal×∆temp3××~•&;
+sysPrint&value~Creating user...~•event~equal×∆temp×1×~•&;
+newPage&event~equal×∆temp×1×~•&;
+addElement&type~pen~•x~0~•y~0~•properties~shape◌dot◌░size◌10000◌░R◌255◌░G◌255◌░B◌255◌░~•event~equal×∆temp×1×~•&;
+addElement&type~text~•x~-100~•y~0~•properties~value◌Creating user...◌░size◌100◌░brightness_effect◌-100◌░~•event~equal×∆temp×1×~•&;
+refreshPage&&;
+setVar&name~temp3~•value~∆i~•event~equal×∆temp×1×~•&;
+varListen&name~temp3~•event~equal×∆temp×1×~•&;
+getJoin&string1~/Users/~•string2~∆temp3~•event~equal×∆temp×1×~•&;
+createFolder&location~/Users~•name~∆i~•event~equal×∆temp×1×~•&;
+createFolder&location~∆temp3~•name~data~•event~equal×∆temp×1×~•&;
+setVar&name~temp3~•value~∆i~•event~equal×∆temp×1×~•&;
+getJoin&string1~/Users/~•string2~∆temp3~•string3~/data~•event~equal×∆temp×1×~•&;
+createFile&location~∆temp3~•name~check.txt~•event~equal×∆temp×1×~•&;
+createFile&location~∆temp3~•name~password.txt~•event~equal×∆temp×1×~•&;
+varListen&name~temp2~•event~equal×∆temp×1×~•&;
+getEncodeItem&value~success~•event~equal×∆temp×1×~•&;
+editFile&location~∆temp3~•name~check.txt~•value~∆temp2~•event~equal×∆temp×1×~•&;
+getEncodeItem&value~pass~•event~equal×∆temp×1×~•&;
+editFile&location~∆temp3~•name~password.txt~•value~∆temp2~•event~equal×∆temp×1×~•&;
+broadcast&vaue~app_settings_adduser~•event~equal×∆temp×0×~•&;
+varListen&name~temp3~•event~equal×∆temp×1×~•&;
+getAsk&value~Password:~•event~equal×∆temp×1×~•&;
+sysPrint&value~Saving...~•event~equal×∆temp×1×~•&;
+newPage&event~equal×∆temp×1×~•&;
+addElement&type~pen~•x~0~•y~0~•properties~shape◌dot◌░size◌10000◌░R◌255◌░G◌255◌░B◌255◌░~•event~equal×∆temp×1×~•&;
+addElement&type~text~•x~-100~•y~0~•properties~value◌Saving...◌░size◌100◌░brightness_effect◌-100◌░~•event~equal×∆temp×1×~•&;
+refreshPage&&;
+getEncodeItem&value~∆temp3~•event~equal×∆temp×1×~•&;
+varListen&name~temp2~•event~equal×∆temp×1×~•&;
+getJoin&string1~/Users/~•string2~∆i~•string3~/data~•event~equal×∆temp×1×~•&;
+editFile&location~∆temp2~•name~password.txt~•value~∆temp3~•event~equal×∆temp×1×~•&;
+sysPrint&value~User created!~•event~equal×∆temp×1×~•&;
+newPage&event~equal×∆temp×1×~•&;
+addElement&type~pen~•x~0~•y~0~•properties~shape◌dot◌░size◌10000◌░R◌255◌░G◌255◌░B◌255◌░~•event~equal×∆temp×1×~•&;
+addElement&type~text~•x~-100~•y~0~•properties~value◌Closing settings...◌░size◌100◌░brightness_effect◌-100◌░~•event~equal×∆temp×1×~•&;
+refreshPage&&;
+wait&value~2~•&;
+sysPrint&value~Closing settings...~•&;
+setVar&name~temp~•value~0~•&;
+setVar&name~process~•value~~•&;
+$
+¶

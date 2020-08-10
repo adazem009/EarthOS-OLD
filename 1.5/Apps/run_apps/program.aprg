@@ -1,0 +1,33 @@
+main×××false×
+$
+sysPrint&value~App loader started.~•&;
+newPage&&;
+varListen&name~temp~•&;
+getJoin&string1~Hello, ~•string2~∆username~•string3~!~•&;
+addElement&type~pen~•x~0~•y~0~•properties~shape◌dot◌░size◌10000◌░R◌100◌░G◌100◌░B◌0◌░~•&;
+addElement&type~text~•x~-215~•y~155~•properties~value◌∆temp◌░size◌100◌░brightness_effect◌100◌░~•&;
+addElement&type~text~•x~-215~•y~100~•properties~value◌This app is used to run other apps.◌░size◌75◌░brightness_effect◌100◌░~•&;
+sysPrint&value~This app is used to run other apps.~•&;
+refreshPage&&;
+varListen&name~temp2~•&;
+getAsk&value~App name. Type list to view them:~•&;
+addElement&type~text~•x~-50~•y~0~•properties~value◌Loading...◌░size◌100◌░color_effect◌120◌░~•&;
+sysPrint&value~Loading...~•&;
+refreshPage&&;
+varListen&name~file_data~•&;
+getJoin&string1~/Apps/~•string2~∆temp2~•&;
+getFile&location~∆file_data~•name~check.txt~•&;
+editElement&id~4~•type~text~•x~-50~•y~0~•properties~value◌404 Not Found◌░size◌100◌░~•event~equal×∆file_data××~•&;
+refreshPage&&;
+setVar&name~process~•value~~•event~equal×∆file_data××~•&;
+sysPrint&value~404 Not Found~•event~equal×∆file_data××~•&;
+editElement&id~4~•type~text~•x~-50~•y~0~•properties~value◌Opening app...◌░size◌100◌░color_effect◌70◌░~•event~not×equal×××∆file_data☼☼■×~•&;
+sysPrint&value~Opening app.~•event~not×equal×××∆file_data☼☼■×~•&;
+refreshPage&&;
+varListen&name~temp~•&;
+getJoin&string1~/Apps/~•string2~∆temp2~•&;
+setVar&name~process~•value~∆temp2~•event~not×equal×××∆file_data☼☼■×~•&;
+runProgram&location~/system~•name~autorun.aprg~•&;
+runProgram&location~∆temp~•name~program.aprg~•event~not×equal×××∆file_data☼☼■×~•wait~false~•&;
+$
+¶
