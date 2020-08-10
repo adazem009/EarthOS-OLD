@@ -82,8 +82,8 @@ $
 ¶
 broadcasted×recovery_action5××false×
 $
-formatPart&id~3~•;
-formatPart&id~4~•;
+formatPart&id~3~•&;
+formatPart&id~4~•&;
 reboot&&;
 $
 ¶
