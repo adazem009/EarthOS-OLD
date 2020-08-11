@@ -1,0 +1,9 @@
+main×××false×
+$
+varListen&name~temp1~•&;
+getJoin&string1~Build ~•string2~∆version~•&;
+sysPrint&value~Welcome to EarthOS 2.0!~•&;
+sysPrint&value~∆temp1~•&;
+createVar&name~kernel_command~•value~~•&;
+$
+¶
