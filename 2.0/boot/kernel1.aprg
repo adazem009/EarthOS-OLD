@@ -7,9 +7,10 @@ sysPrint&value~∆temp1~•&;
 createVar&name~kernel_time~•&;
 createVar&name~kernel_command~•&;
 broadcast&value~kernel_time~•&;
+runProgram&location~/system/commands/engine~•name~all.aprg~•&;
 $
 ¶
-broadcasted×kernel_time××false×
+broadcasted×kernel_time××true×
 $
 wait&value~1~•&;
 changeVar&name~kernel_time~•value~1~•&;
