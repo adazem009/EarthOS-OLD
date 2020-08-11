@@ -6,6 +6,7 @@ $
 ¶
 broadcasted×cmd_shutdown××false×
 $
-
+setVar&name~cmd_shutdown~•value~kernel_command~•&;
+runScript&location~/system/commands~•name~shutdown.asc~•&;
 $
 ¶
