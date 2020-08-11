@@ -5,6 +5,7 @@ getJoin&string1~Build ~•string2~∆version~•&;
 sysPrint&value~Welcome to EarthOS 2.0!~•&;
 sysPrint&value~∆temp1~•&;
 createVar&name~kernel_time~•&;
+createVar&name~kernel_command~•&;
 broadcast&value~kernel_time~•&;
 $
 ¶
