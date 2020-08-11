@@ -4,6 +4,13 @@ varListen&name~temp1~•&;
 getJoin&string1~Build ~•string2~∆version~•&;
 sysPrint&value~Welcome to EarthOS 2.0!~•&;
 sysPrint&value~∆temp1~•&;
-createVar&name~kernel_command~•value~~•&;
+createVar&name~kernel_time~•&;
+broadcast&value~kernel_time~•&;
+$
+¶
+broadcasted×kernel_time××false×
+$
+wait&value~1~•&;
+changeVar&name~kernel_time~•value~1~•&;
 $
 ¶
