@@ -5,6 +5,7 @@ setVar&name~boottmp2~•value~֎∆boottmp~•&;
 setVar&name~boottmp2~•value~∆boottmp2*25~•&;
 changeVar&name~boottmp2~•value~25~•&;
 editElement&id~3~•type~pen~•x~0~•y~-125~•properties~shape◌rectangle◌░la◌∆boottmp2◌░lb◌∆boottmp2◌░R◌∆boottmp2◌░G◌255◌░B◌50◌░fill◌false◌░~•&;
+forceStop&event~equal×stopanim×1×~•&;
 refreshPage&&;
 $
 ¶
