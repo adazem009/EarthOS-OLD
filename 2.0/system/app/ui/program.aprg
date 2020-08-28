@@ -2,7 +2,7 @@ main×××false×
 $
 newPage&&;
 varListen&name~bg~•&;
-getFile&location~/data/settings~•name~bg.eosg~•all~~•&;
+getFile&location~/data/settings~•name~bg.eosg~•all~true~•&;
 addElement&type~image~•x~0~•y~0~•properties~code◌∆bg◌░size◌100◌░~•&;
 $
 ¶
