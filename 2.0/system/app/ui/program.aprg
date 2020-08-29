@@ -3,8 +3,8 @@ $
 newPage&&;
 varListen&name~bg~•&;
 getFile&location~/data/settings~•name~bg.eosg~•&;
-addElement&type~image~•x~0~•y~0~•properties~code◌∆bg◌░size◌100◌░~•&;
-addElement&type~pen~•x~0~•y~160~•properties~shape◌rectangle◌░la◌480◌░lb◌40◌░R◌255◌░G◌0◌░B◌0◌░fill◌false◌░~•&;
+addElement&type~image~•x~0~•y~0~•properties~code◌∆bg◌░size◌60◌░~•&;
+addElement&type~pen~•x~0~•y~160~•properties~shape◌rectangle◌░la◌480◌░lb◌40◌░R◌255◌░G◌0◌░B◌0◌░fill◌true◌░~•&;
 $
 ¶
 main×××true×
